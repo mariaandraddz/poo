@@ -12,19 +12,29 @@ public class Lutador {
 
     // Métodos Públicos
     public void apresentar() {
-
+        System.out.println("CHEGOU A HORA! Apresentamos o lutador" + this.getNome());
+        System.out.println("Origem: " + this.getNacionalidade());
+        System.out.println("com " + this.getIdade());
+        System.out.println("pesando " + this.getPeso());
+        System.out.println("Ganhou " + this.getVitorias());
+        System.out.println("Perdeu " + this.getDerrotas());
+        System.out.println("Empatou: " + this.getEmpates());
     }
     public void status(){
-
+        System.out.println(this.getNome());
+        System.out.println("é um peso " + this.getCategoria());
+        System.out.println(this.getVitorias() + " vitórias");
+        System.out.println(getDerrotas() + " derrotas");
+        System.out.println(getEmpates() + " empates");
     }
     public void ganharLuta() {
-
+        this.setVitorias(this.getVitorias() + 1);
     }
     public void perderLuta(){
-
+        this.setDerrotas(this.getDerrotas() + 1);
     }
     public void empatarLuta() {
-
+        this.setEmpates(this.getEmpates() + 1);
     }
 
     // Métodos Especiais
@@ -85,8 +95,18 @@ public class Lutador {
         return categoria;
     }
 
-    public void setCategoria() {
-        this.categoria = categoria;
+    private void setCategoria() {
+        if (this.peso < 52.2) {
+            this.categoria = "Inválido";
+        } else if (this.peso <= 70.3) {
+            this.categoria = "Leve";
+        } else if (this.peso <= 83.9) {
+            this.categoria = "Médio";
+        } else if (this.peso <= 120.2) {
+            this.categoria = "Pesado";
+        } else {
+            this.categoria = "Inválido";
+        }
     }
 
     public int getVitorias() {
